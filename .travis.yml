@@ -1,0 +1,20 @@
+language: node_js
+node_js:
+  - "7"
+  
+before_script:
+  - npm install
+  
+script:
+  - echo "Antes de la construccion" 
+  - npm run build 
+  - ls 
+
+deploy: 
+  provider: pages 
+  local_dyr: build/
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  keep_history: true
+  on: 
+    branch: master
